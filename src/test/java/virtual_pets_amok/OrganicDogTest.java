@@ -8,7 +8,13 @@ import org.junit.Test;
 
 public class OrganicDogTest {
 	
-	OrganicDog underTest = new OrganicDog(1,1,1,1,1,1,1);
+	OrganicDog underTest = new OrganicDog("name",1,1,1,1,1,1,1);
+	
+	@Test
+	public void shouldReturnName() {
+		String check = underTest.getPetsName();
+		assertEquals(check,"name");
+	}
 	
 	@Test
 	public void shouldReturnHealthLevel() {
