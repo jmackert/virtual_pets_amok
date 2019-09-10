@@ -1,6 +1,6 @@
 package virtual_pets_amok;
 
-public class OrganicDog extends OrganicAnimal {
+public class OrganicDog extends OrganicAnimal implements DogActivities {
 
 	private int cageDirtinessLevel;
 
@@ -19,6 +19,16 @@ public class OrganicDog extends OrganicAnimal {
 
 	public void cleanCage() {
 		cageDirtinessLevel = 0;
+	}
+
+	@Override
+	public void walkDogs() {
+		increaseHappinessLevel();
+		increaseHungerLevel();
+		increaseThirstLevel();
+		increaseHealthLevel();
+		decreasePottyNeeds();
+		
 	}
 
 }
