@@ -75,5 +75,29 @@ public class OrganicDog {
 	public void increaseHealthLevel() {
 		healthLevel++;
 	}
+	
+	public void decreaseHealthLevel() {
+		healthLevel--;
+	}
+	
+	public void decreaseHappinessLevel() {
+		happinessLevel--;
+	}
+	
+	public void decreaseHungerLevel() {
+		hungerLevel = 0;
+	}
+	
+	public void decreaseThirstLevel() {
+		thirstLevel = 0;
+	}
+	
+	public void decreasePottyNeeds() {
+		pottyNeeds = 0;
+	}
+	
+	public void cleanCage() {
+		cageDirtinessLevel = 0;
+	}
 
 }

@@ -66,4 +66,17 @@ public class OrganicDogTest {
 		assertThat(hungerAfter, is(2));
 	}
 
+	@Test
+	public void shouldDecreaseHungerLevel() {
+		underTest.decreaseHungerLevel();
+		int hungerAfter = underTest.getHungerLevel();
+		assertThat(hungerAfter, is(0));
+	}
+	
+	@Test
+	public void shouldDecreaseHappinessLevel() {
+		underTest.decreaseHappinessLevel();
+		int happinessAfter = underTest.getHappinessLevel();
+		assertThat(happinessAfter, is(0));
+	}
 }
