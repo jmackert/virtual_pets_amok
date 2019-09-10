@@ -7,15 +7,17 @@ public class OrganicDog {
 	private int hungerLevel;
 	private int thirstLevel;
 	private int pottyNeeds;
-	private int cageCleanlinessLevel;
+	private int cageDirtinessLevel;
+	private int tickLevel;
 
-	public OrganicDog(int health, int happiness, int hunger, int thirst, int pottyNeeds, int cageCleanliness) {
+	public OrganicDog(int health, int happiness, int hunger, int thirst, int pottyNeeds, int cageDirtiness, int tick) {
 		this.healthLevel = health;
 		this.happinessLevel = happiness;
 		this.hungerLevel = hunger;
 		this.thirstLevel = thirst;
 		this.pottyNeeds = pottyNeeds;
-		this.cageCleanlinessLevel = cageCleanliness;
+		this.cageDirtinessLevel = cageDirtiness;
+		this.tickLevel = tick;
 	}
 
 	public int getHealthLevel() {
@@ -38,8 +40,40 @@ public class OrganicDog {
 		return pottyNeeds;
 	}
 
-	public int getCageCleanlinessLevel() {
-		return cageCleanlinessLevel;
+	public int getCageDirtinessLevel() {
+		return cageDirtinessLevel;
+	}
+
+	public int getTickLevel() {
+		return tickLevel;
+	}
+
+	public void increaseTickLevel() {
+		tickLevel++;
+	}
+
+	public void increaseHungerLevel() {
+		hungerLevel++;
+	}
+	
+	public void increaseThirstLevel() {
+		thirstLevel++;
+	}
+	
+	public void increasePottyNeeds() {
+		pottyNeeds++;
+	}
+	
+	public void increaseeCageDirtinessLevel() {
+		cageDirtinessLevel++;
+	}
+	
+	public void increaseHappinessLevel() {
+		happinessLevel++;
+	}
+	
+	public void increaseHealthLevel() {
+		healthLevel++;
 	}
 
 }

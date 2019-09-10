@@ -1,12 +1,14 @@
 package virtual_pets_amok;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
 public class OrganicDogTest {
 	
-	OrganicDog underTest = new OrganicDog(1,1,1,1,1,1);
+	OrganicDog underTest = new OrganicDog(1,1,1,1,1,1,1);
 	
 	@Test
 	public void shouldReturnHealthLevel() {
@@ -40,8 +42,28 @@ public class OrganicDogTest {
 	
 	@Test
 	public void shouldReturnCageCleanlinessLevel() {
-		int check = underTest.getCageCleanlinessLevel();
+		int check = underTest.getCageDirtinessLevel();
 		assertEquals(check,1);
+	}
+	
+	@Test
+	public void shouldReturnTickLevel() {
+		int check = underTest.getTickLevel();
+		assertEquals(check,1);
+	}
+	
+	@Test
+	public void shouldIncreaseTickLevel() {
+		underTest.increaseTickLevel();
+		int tickAfter = underTest.getTickLevel();
+		assertThat(tickAfter, is(2));
+	}
+	
+	@Test
+	public void shouldIncreaseHungerLevel() {
+		underTest.increaseHungerLevel();
+		int hungerAfter = underTest.getHungerLevel();
+		assertThat(hungerAfter, is(2));
 	}
 
 }
