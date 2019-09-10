@@ -1,6 +1,6 @@
 package virtual_pets_amok;
 
-public class OrganicDog extends OrganicAnimals {
+public class OrganicDog extends OrganicAnimal {
 
 	private int cageDirtinessLevel;
 

@@ -1,13 +1,13 @@
 package virtual_pets_amok;
 
-public abstract class OrganicAnimals extends Animals {
+public abstract class OrganicAnimal extends Animal {
 
 	protected int hungerLevel;
 	protected int thirstLevel;
 	protected int pottyNeeds;
 	
 
-	public OrganicAnimals(String name, int health, int happiness, int tick, int hunger, int thirst, int pottyNeeds) {
+	public OrganicAnimal(String name, int health, int happiness, int tick, int hunger, int thirst, int pottyNeeds) {
 		this.name = name;
 		this.healthLevel = health;
 		this.happinessLevel = happiness;
