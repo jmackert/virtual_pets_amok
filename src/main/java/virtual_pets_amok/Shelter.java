@@ -108,6 +108,13 @@ public class Shelter {
 		System.out.println("You cleaned the Litter box");
 	}
 	
+	public void cleanCages() {
+		for (OrganicDog pets: organicDogShelter) {
+			pets.cleanCage();
+		}
+		System.out.println("You cleaned the Cages");
+	}
+	
 	public void walkTheDogs() {
 		for(OrganicDog pets : organicDogShelter) {
 			pets.walkDogs();
@@ -118,12 +125,17 @@ public class Shelter {
 		System.out.println("You walked all the dogs");
 	}
 	
-	public void interactionMenu() {
-		System.out.println("1: Feed all the organic animals");
-		System.out.println("2: Give water to all the organic animals");
-		System.out.println("3: Clean the litter box");
-		System.out.println("4: Walk the dogs");
-		
-		
+	public void oilRoboticPets() {
+		for(RoboticDog pets: roboticDogShelter) {
+			pets.decraseMaintenanceLevel();
+		}
+		for (RoboticCat pets: roboticCatShelter) {
+			pets.decraseMaintenanceLevel();
+		}
+		System.out.println("You oiled all the robotic animals");
+	}
+
+	public void increaseTick() {
+		increaseTick();
 	}
 }
