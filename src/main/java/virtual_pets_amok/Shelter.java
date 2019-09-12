@@ -45,6 +45,33 @@ public class Shelter {
 		newPet.increaseTickLevel();
 	}
 
+	public void removePet() {
+		System.out.println("Enter the name of the pet you would like to sell1:");
+		String petToAdopt = input.nextLine();
+		for (int i = organicDogShelter.size() - 1; i >= 0; i--) {
+			if (organicDogShelter.get(i).getPetsName().equals(petToAdopt)) {
+				organicDogShelter.remove(i);
+			}
+		}
+		for (int i = organicCatShelter.size() - 1; i >= 0; i--) {
+			if (organicCatShelter.get(i).getPetsName().equals(petToAdopt)) {
+				organicCatShelter.remove(i);
+			}
+		}
+
+		for (int i = roboticCatShelter.size() - 1; i >= 0; i--) {
+			if (roboticCatShelter.get(i).getPetsName().equals(petToAdopt)) {
+				roboticCatShelter.remove(i);
+			}
+		}
+		for (int i = roboticDogShelter.size() - 1; i >= 0; i--) {
+			if (roboticDogShelter.get(i).getPetsName().equals(petToAdopt)) {
+				roboticDogShelter.remove(i);
+			}
+		}
+
+	}
+
 	public void showOrganicDogs() {
 		System.out.println("Organic Dogs:");
 		for (OrganicDog pets : organicDogShelter) {
