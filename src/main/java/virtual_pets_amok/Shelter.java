@@ -10,6 +10,7 @@ public class Shelter {
 	List<OrganicCat> organicCatShelter = new ArrayList();
 	List<RoboticDog> roboticDogShelter = new ArrayList();
 	List<RoboticCat> roboticCatShelter = new ArrayList();
+	int litterBoxDirtinessLevel = 0;
 
 	Scanner input = new Scanner(System.in);
 
@@ -24,7 +25,7 @@ public class Shelter {
 	public void addOrganicCat() {
 		System.out.println("Enter the organic cat's name: ");
 		String name = input.nextLine();
-		OrganicCat newPet = new OrganicCat(name, 0, 0, 0, 0, 0, 0, 0);
+		OrganicCat newPet = new OrganicCat(name, 0, 0, 0, 0, 0, 0);
 		organicCatShelter.add(newPet);
 		newPet.increaseTickLevel();
 	}
@@ -81,14 +82,14 @@ public class Shelter {
 					+ pets.getCageDirtinessLevel());
 		}
 	}
-
+ 
 	public void showOrganicCats() {
 		System.out.println("Organic Cats:");
+		System.out.println("Litter Box Filth: " + getLitterBoxDirtinessLevel());
 		for (OrganicCat pets : organicCatShelter) {
 			System.out.println("Name: " + pets.getPetsName() + "   Health: " + pets.getHealthLevel() + "   Happiness: "
 					+ pets.getHappinessLevel() + "   Hunger: " + pets.getHungerLevel() + "   Thirst: "
-					+ pets.getThirstLevel() + "   Potty Needs: " + pets.getPottyNeeds() + "   Litter Box Filth: "
-					+ pets.getLitterBoxDirtinessLevel());
+					+ pets.getThirstLevel() + "   Potty Needs: " + pets.getPottyNeeds());
 		}
 	}
 
@@ -129,9 +130,25 @@ public class Shelter {
 		System.out.println("You gave water to all the organic animals");
 	}
 
+	public int getLitterBoxDirtinessLevel() {
+		for (int i = organicCatShelter.size() - 1; i >= 0; i--) {
+			if (organicCatShelter.get(i).decreasePottyNeeds()) {
+				litterBoxDirtinessLevel++;
+			}
+		}
+		if (litterBoxDirtinessLevel > 5) {
+			for (OrganicCat pets: organicCatShelter) {
+				pets.decreaseHealthLevel();
+				pets.decreaseHappinessLevel();
+			}
+		}
+		return litterBoxDirtinessLevel;
+	}
+		
 	public void cleanCatLitter() {
+		litterBoxDirtinessLevel = 0;
 		for (OrganicCat pets : organicCatShelter) {
-			pets.cleadLitterBox();
+			pets.increaseHappinessLevel();
 		}
 		System.out.println("You cleaned the Litter box");
 	}

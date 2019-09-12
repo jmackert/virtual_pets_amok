@@ -62,8 +62,13 @@ public abstract class OrganicAnimal extends Animal {
 		increaseHealthLevel();
 	}
 
-	public void decreasePottyNeeds() {
-		pottyNeeds = 0;
+	public boolean decreasePottyNeeds() {
+		if (pottyNeeds >= 5) {
+			pottyNeeds = 0;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

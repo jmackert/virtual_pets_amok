@@ -49,6 +49,8 @@ public class VirtualPetsAmokApp {
 			break;
 		case 10:
 			running = false;
+			System.out.println("You quit the program");
+			break;
 		default:
 			myShelter.increaseTick();
 		}
