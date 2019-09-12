@@ -5,7 +5,6 @@ public abstract class OrganicAnimal extends Animal {
 	protected int hungerLevel;
 	protected int thirstLevel;
 	protected int pottyNeeds;
-	
 
 	public OrganicAnimal(String name, int health, int happiness, int tick, int hunger, int thirst, int pottyNeeds) {
 		this.name = name;
@@ -18,10 +17,16 @@ public abstract class OrganicAnimal extends Animal {
 	}
 
 	public int getHungerLevel() {
+		if (tickLevel % 3 == 0) {
+			increaseHungerLevel();
+		}
 		return hungerLevel;
 	}
 
 	public int getThirstLevel() {
+		if (tickLevel % 3 == 0) {
+			increaseThirstLevel();
+		}
 		return thirstLevel;
 	}
 
@@ -43,10 +48,18 @@ public abstract class OrganicAnimal extends Animal {
 
 	public void decreaseHungerLevel() {
 		hungerLevel = 0;
+		increaseThirstLevel();
+		increasePottyNeeds();
+		increaseHappinessLevel();
+		increaseHealthLevel();
 	}
 
 	public void decreaseThirstLevel() {
 		thirstLevel = 0;
+		increaseHungerLevel();
+		increasePottyNeeds();
+		increaseHappinessLevel();
+		increaseHealthLevel();
 	}
 
 	public void decreasePottyNeeds() {

@@ -2,7 +2,7 @@ package virtual_pets_amok;
 
 public abstract class RoboticAnimal extends Animal {
 
-	private int maintenanceLevel;
+	protected int maintenanceLevel;
 
 	public RoboticAnimal(String name, int health, int happiness, int tick, int maintenance) {
 		this.name = name;
@@ -13,6 +13,9 @@ public abstract class RoboticAnimal extends Animal {
 	}
 
 	public int getMaintenanceLevel() {
+		if (tickLevel % 3 == 0) {
+			increaseMaintenanceLevel();
+		}
 		return maintenanceLevel;
 	}
 
@@ -22,5 +25,7 @@ public abstract class RoboticAnimal extends Animal {
 
 	public void decraseMaintenanceLevel() {
 		maintenanceLevel = 0;
+		increaseHappinessLevel();
+		increaseHealthLevel();
 	}
 }

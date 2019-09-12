@@ -7,7 +7,7 @@ public class VirtualPetsAmokApp {
 	static boolean running = true;
 	static Shelter myShelter = new Shelter();
 
-	public void mainMenu() {
+	public static void displayMainMenu() {
 		System.out.println("1: Add pet");
 		System.out.println("2: Feed all the organic animals");
 		System.out.println("3: Give water to all the organic animals");
@@ -15,10 +15,11 @@ public class VirtualPetsAmokApp {
 		System.out.println("5: Clean the cages");
 		System.out.println("6: Walk the dogs");
 		System.out.println("7: Oil robotic pets");
-		System.out.println("8: QUIT");
+		System.out.println("8: Do nothing");
+		System.out.println("9: QUIT");
 		int interaction = input.nextInt();
 		switch(interaction) {
-		case 1: addPetMenu();
+		case 1: displayAddPetMenu();
 		break;
 		case 2: myShelter.feedOrganicAnimals();
 		break;
@@ -32,13 +33,21 @@ public class VirtualPetsAmokApp {
 		break;
 		case 7:myShelter.oilRoboticPets();
 		break;
-		case 8: running = false;
-		default:  myShelter.increaseTick();
+		case 8:myShelter.increaseTick();
 		break;
+		case 9: running = false;
+		default:  myShelter.increaseTick();
 		}
 	}
 
-	public void addPetMenu() {
+	public  static void showShelter() {
+		myShelter.showOrganicDogs();
+		myShelter.showOrganicCats();
+		myShelter.showRoboticDogs();
+		myShelter.showRoboticCats();
+	}
+	
+	public static void displayAddPetMenu() {
 		System.out.println("1: Add organic dog");
 		System.out.println("2: Add organic cat");
 		System.out.println("3: Add robotic dog");
@@ -62,15 +71,10 @@ public class VirtualPetsAmokApp {
 	public static void main(String[] args) {
 
 		while (running == true) {
-			System.out.println("1 for add organic dog .... 2 for add organic cat: ");
-			int add = input.nextInt();
-			if (add == 1) {
-				myShelter.addOrganicDog();
-			} else {
-				myShelter.addOrganicCat();
-			}
-			myShelter.showShelter();
-
+			
+			displayMainMenu();
+			showShelter();
+			
 		}
 
 	}

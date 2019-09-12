@@ -4,9 +4,12 @@ public class OrganicDog extends OrganicAnimal implements DogActivities {
 
 	private int cageDirtinessLevel;
 
-	public OrganicDog(String name, int health, int happiness, int hunger, int thirst, int pottyNeeds, int cageDirtiness, int tick) {
+	public OrganicDog(String name, int health, int happiness, int hunger, int thirst, int pottyNeeds, int cageDirtiness,
+			int tick) {
 		super(name, health, happiness, tick, hunger, thirst, pottyNeeds);
 		this.cageDirtinessLevel = cageDirtiness;
+		this.happinessLevel = 10;
+		this.healthLevel = 10;
 	}
 
 	public int getCageDirtinessLevel() {
@@ -24,16 +27,19 @@ public class OrganicDog extends OrganicAnimal implements DogActivities {
 
 	@Override
 	public int getHealthLevel() {
-		if(cageDirtinessLevel > 5 || hungerLevel > 5 || thirstLevel > 5) {
+		if (cageDirtinessLevel > 2 || hungerLevel > 5 || thirstLevel > 5) {
 			decreaseHealthLevel();
 			decreaseHappinessLevel();
 		}
-		if(happinessLevel < 5) {
+		if (happinessLevel < 5) {
 			decreaseHealthLevel();
+		}
+		if (happinessLevel > 10) {
+			increaseHealthLevel();
 		}
 		return healthLevel;
 	}
-	
+
 	@Override
 	public void walkDogs() {
 		increaseHappinessLevel();
@@ -42,10 +48,10 @@ public class OrganicDog extends OrganicAnimal implements DogActivities {
 		increaseHealthLevel();
 		decreasePottyNeeds();
 	}
-	
+
 	@Override
 	public int getPottyNeeds() {
-		if(pottyNeeds >= 10) {
+		if (pottyNeeds >= 5) {
 			decreasePottyNeeds();
 			increaseCageDirtinessLevel();
 		}
