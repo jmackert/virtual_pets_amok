@@ -19,6 +19,7 @@ public class OrganicCat extends OrganicAnimal {
 	
 	public void cleadLitterBox() {
 		litterBoxDirtinessLevel = 0;
+		increaseHappinessLevel();
 	}
 	
 	@Override

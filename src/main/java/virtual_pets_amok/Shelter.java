@@ -19,6 +19,7 @@ public class Shelter {
 		String name = input.nextLine();
 		OrganicDog newPet = new OrganicDog(name, 0, 0, 0, 0, 0, 0, 0);
 		organicDogShelter.add(newPet);
+		newPet.increaseTickLevel();
 	}
 	
 	public void addOrganicCat() {
@@ -26,6 +27,7 @@ public class Shelter {
 		String name = input.nextLine();
 		OrganicCat newPet = new OrganicCat(name, 0, 0, 0, 0, 0, 0, 0);
 		organicCatShelter.add(newPet);
+		newPet.increaseTickLevel();
 	}
 	
 	public void addRoboticDog() {
@@ -33,6 +35,7 @@ public class Shelter {
 		String name = input.nextLine();
 		RoboticDog newPet = new RoboticDog(name, 0, 0, 0, 0);
 		roboticDogShelter.add(newPet);
+		newPet.increaseTickLevel();
 	}
 	
 	public void addRoboticCat() {
@@ -40,19 +43,20 @@ public class Shelter {
 		String name = input.nextLine();
 		RoboticCat newPet = new RoboticCat(name, 0, 0, 0, 0);
 		roboticCatShelter.add(newPet);
+		newPet.increaseTickLevel();
 	}
 	
 	public void showOrganicDogs() {
 		System.out.println("Organic Dogs:");
 		for(OrganicDog pets : organicDogShelter) {
-			System.out.println("Name: " + pets.getPetsName() + " Hunger: " + pets.getHungerLevel() + " cage: " + pets.getCageDirtinessLevel());
+			System.out.println("Name: " + pets.getPetsName() + " Health: " + pets.getHealthLevel() + " Happiness: " + pets.getHappinessLevel() + " Hunger: " + pets.getHungerLevel() + " Thirst: " + pets.getThirstLevel() + " Potty Needs" + pets.getPottyNeeds() + " Cage Filth: " + pets.getCageDirtinessLevel());
 		}
 	}
 	
 	public void showOrganicCats() {
 		System.out.println("Organic Cats:");
 		for(OrganicCat pets : organicCatShelter) {
-			System.out.println("Name: " + pets.getPetsName() + " Hunger: " + pets.getHungerLevel() + " litter: " + pets.getLitterBoxDirtinessLevel());
+			System.out.println("Name: " + pets.getPetsName() + " Health: " + pets.getHealthLevel() + " Happiness: " + pets.getHappinessLevel() + " Hunger: " + pets.getHungerLevel() + " Thirst: " + pets.getThirstLevel() + " Potty Needs" + pets.getPottyNeeds() + " Litter Box Filth: " + pets.getLitterBoxDirtinessLevel());
 		}
 	}
 	
@@ -77,4 +81,49 @@ public class Shelter {
 		showRoboticCats();
 	}
 
+	public void feedOrganicAnimals() {
+		for(OrganicDog pets : organicDogShelter) {
+			pets.decreaseHungerLevel();
+		}
+		for(OrganicCat pets : organicCatShelter) {
+			pets.decreaseHungerLevel();
+		}
+		System.out.println("You fed all the organic animals");
+	}
+	
+	public void waterOrganicAnimals() {
+		for(OrganicDog pets : organicDogShelter) {
+			pets.decreaseThirstLevel();
+		}
+		for(OrganicCat pets : organicCatShelter) {
+			pets.decreaseThirstLevel();
+		}
+		System.out.println("You gave water to all the organic animals");
+	}
+	
+	public void cleanCatLitter() {
+		for(OrganicCat pets : organicCatShelter) {
+			pets.cleadLitterBox();
+		}
+		System.out.println("You cleaned the Litter box");
+	}
+	
+	public void walkTheDogs() {
+		for(OrganicDog pets : organicDogShelter) {
+			pets.walkDogs();
+		}
+		for(RoboticDog pets : roboticDogShelter) {
+			pets.walkDogs();
+		}
+		System.out.println("You walked all the dogs");
+	}
+	
+	public void interactionMenu() {
+		System.out.println("1: Feed all the organic animals");
+		System.out.println("2: Give water to all the organic animals");
+		System.out.println("3: Clean the litter box");
+		System.out.println("4: Walk the dogs");
+		
+		
+	}
 }

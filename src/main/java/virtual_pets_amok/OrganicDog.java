@@ -13,14 +13,27 @@ public class OrganicDog extends OrganicAnimal implements DogActivities {
 		return cageDirtinessLevel;
 	}
 
-	public void increaseeCageDirtinessLevel() {
+	public void increaseCageDirtinessLevel() {
 		cageDirtinessLevel++;
 	}
 
 	public void cleanCage() {
 		cageDirtinessLevel = 0;
+		increaseHappinessLevel();
 	}
 
+	@Override
+	public int getHealthLevel() {
+		if(cageDirtinessLevel > 5 || hungerLevel > 5 || thirstLevel > 5) {
+			decreaseHealthLevel();
+			decreaseHappinessLevel();
+		}
+		if(happinessLevel < 5) {
+			decreaseHealthLevel();
+		}
+		return healthLevel;
+	}
+	
 	@Override
 	public void walkDogs() {
 		increaseHappinessLevel();
@@ -28,7 +41,15 @@ public class OrganicDog extends OrganicAnimal implements DogActivities {
 		increaseThirstLevel();
 		increaseHealthLevel();
 		decreasePottyNeeds();
-		
+	}
+	
+	@Override
+	public int getPottyNeeds() {
+		if(pottyNeeds >= 10) {
+			decreasePottyNeeds();
+			increaseCageDirtinessLevel();
+		}
+		return pottyNeeds;
 	}
 
 }

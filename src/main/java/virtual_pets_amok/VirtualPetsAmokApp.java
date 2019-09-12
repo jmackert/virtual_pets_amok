@@ -10,8 +10,8 @@ public class VirtualPetsAmokApp {
 		while (running == true) {
 			myShelter.addOrganicDog();
 			myShelter.addOrganicCat();
-			myShelter.addRoboticDog();
-			myShelter.addRoboticCat();
+			//myShelter.addRoboticDog();
+			//myShelter.addRoboticCat();
 			myShelter.showShelter();
 
 		}
