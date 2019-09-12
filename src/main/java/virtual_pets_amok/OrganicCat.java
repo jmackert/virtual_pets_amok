@@ -20,5 +20,26 @@ public class OrganicCat extends OrganicAnimal {
 	public void cleadLitterBox() {
 		litterBoxDirtinessLevel = 0;
 	}
+	
+	@Override
+	public int getHealthLevel() {
+		if(litterBoxDirtinessLevel > 5 || hungerLevel > 5 || thirstLevel > 5) {
+			decreaseHealthLevel();
+			decreaseHappinessLevel();
+		}
+		if(happinessLevel < 5) {
+			decreaseHealthLevel();
+		}
+		return healthLevel;
+	}
+	
+	@Override
+	public int getPottyNeeds() {
+		if(pottyNeeds >= 10) {
+			decreasePottyNeeds();
+			increaseLitterBoxDirtinessLevel();
+		}
+		return pottyNeeds;
+	}
 
 }
